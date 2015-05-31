@@ -77,7 +77,7 @@ int main() {
   std::cin >> t;
 
   int root = 0;
-  //read data and find the root number
+  //read data and find the index of root
   for (int i = 0; i < t; ++i) {
     char l, r;
     std::cin >> l >> r;
