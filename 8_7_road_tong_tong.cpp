@@ -9,7 +9,7 @@ void solution(int n, const vector<vector<int> > &road) {
   vector<bool> visit(n+1, false);
   vector<int> low(n+1, INF);
 
-  int pos = 1, min, count = 0, len = 0;
+  int pos = 1, min, len = 0;
   visit[1] = true;
 
   for (int i = 1; i <= n; ++i) {
@@ -28,7 +28,6 @@ void solution(int n, const vector<vector<int> > &road) {
     }
 
     len += min;
-    ++count;
 
     visit[pos] = true;
 
@@ -38,7 +37,7 @@ void solution(int n, const vector<vector<int> > &road) {
     }
   }
 
-  if (count != n - 1)
+  if (len > INF)
     cout << "-1\n";
   else
     cout << len << endl;
