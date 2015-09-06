@@ -52,10 +52,8 @@ void printComponent() {
 int main() {
   cin >> n >> e;
   // initialize
-  for (int i = 0; i < n; ++i) {
-    vector<bool> temp(n, false);
-    graph.push_back(temp);
-  }
+  graph.assign(n, vector<bool>(n, false));
+
   // read in graph
   for (int i = 0; i < e; ++i) {
     int x, y;

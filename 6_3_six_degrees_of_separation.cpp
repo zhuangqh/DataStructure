@@ -42,10 +42,7 @@ int bfs(int sta) {
 
 int main() {
   cin >> n >> m;
-  for (int i = 0; i <= n; ++i) {
-    vector<bool> temp(n+1, false);
-    graph.push_back(temp);
-  }
+  graph.assign(n+1, vector<bool>(n+1, false));
 
   for (int i = 0; i < m; ++i) {
     int x, y;

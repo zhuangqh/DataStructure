@@ -37,12 +37,8 @@ void dfs(int x, int y) {
 int main() {
   cin >> n >> d;
   // initialize
-  for (int i = 0; i <= 100; ++i) {
-    vector<bool> temp(101, false);
-    vector<bool> v(101, false);
-    graph.push_back(temp);
-    visit.push_back(v);
-  }
+  graph.assign(101, vector<bool>(101, false));
+  visit.assign(101, vector<bool>(101, false));
 
   for (int i = 0; i < n; ++i) {
     int x, y;
