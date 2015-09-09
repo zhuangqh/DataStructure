@@ -37,28 +37,31 @@ int main() {
 
   insertionSort(origin, table, n);
 
-  // S : single circle
-  // K : multiply circle
-  int S = 0, K = 0, ptr;
+  int count, ptr, sum = 0, flag;
   for (int i = 0; i < n; ++i) {
-    if (table[i] == -1) continue;
+    flag = true;
+    count = 1;
+
     if (table[i] != i) {
+      if (i == 0) flag = false;
       ptr = table[i];
-      table[i] = -1;
+      table[i] = i;
 
       while (ptr != i) {
+        if (ptr == 0) flag = false;
+        ++count;
         int temp = ptr;
         ptr = table[ptr];
-        table[temp] = -1;
+        table[temp] = temp;
       }
-      ++K;
-    } else {
-      ++S;
+
+      if (flag)
+        sum += count + 1;
+      else
+        sum += count - 1;
     }
   }
-  if (S && !K)
-    cout << "0\n";
-  else
-    cout << (n-S+K-2) << endl;
+
+  cout << sum << endl;
   return 0;
 }
