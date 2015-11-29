@@ -1,30 +1,33 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
 int main() {
   int n;
   cin >> n;
-  vector<int> vec(n);
-
+  vector<int> v(n, 0);
   for (int i = 0; i < n; ++i) {
-    int temp;
-    cin >> temp;
-    vec[i] = temp;
+    cin >> v[i];
   }
 
-  sort(vec.begin(), vec.end());
-
+  sort(v.begin(), v.end());
   bool isfirst = true;
+
+  // output
   for (int i = 0; i < n; ++i) {
     if (isfirst) isfirst = false;
     else cout << " ";
 
-    cout << vec[i];
+    cout << v[i];
   }
 
   cout << endl;
+  if (n % 2 == 0) {
+    cout << (v[n/2] + v[n/2 - 1]) /  2;
+  } else {
+    cout << v[n/2];
+  }
   return 0;
 }
